@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fluffy Bites | Pancakes Made with Love</title>
+
+    <style>
+        :root {
+            --pink: #f9b9c9;
+            --dark: #54382f;
+            --cream: #fffaf3;
+            --accent: #df6f8d;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: var(--dark);
+            background: var(--cream);
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: #fffdf9;
+            box-shadow: 0 2px 15px #54382f12;
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 24px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 1.45rem;
+            color: #b94c72;
+        }
+
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            margin-left: 18px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* HOME SECTION */
+
+        .hero {
+            background: linear-gradient(
+                120deg,
+                #ffe4e9,
+                #fff5df
+            );
+
+            padding: 95px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 590px;
+            margin: 20px auto 30px;
+        }
+
+        .hero-emoji {
+            font-size: 5rem;
+            display: block;
+        }
+
+        /* BUTTONS */
+
+        .btn {
+            background: #bc4d74;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            padding: 13px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #913654;
+        }
+
+        .outline {
+            background: transparent;
+            border: 2px solid #bc4d74;
+            color: #913654;
+        }
+
+        /* SECTIONS */
+
+        .section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 75px 22px;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.3rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #826b61;
+            margin-bottom: 35px;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: #fff1f3;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 730px;
+            margin: auto;
+        }
+
+        /* MENU CARDS */
+
+        .cards {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 26px #54382f12;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-art {
+            height: 145px;
+            display: grid;
+            place-items: center;
+            font-size: 4.2rem;
+            background: linear-gradient(
+                135deg,
+                #ffebd4,
+                #ffd5e2
+            );
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .price {
+            color: #b64268;
+            font-size: 1.35rem;
+            font-weight: 900;
+        }
+
+        .muted {
+            color: #866f67;
+        }
+
+        /* TOPPINGS */
+
+        .extras {
+            background: #fff1f3;
+            border-radius: 20px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .chip {
+            background: white;
+            padding: 9px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            background: #fff0f2;
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 680px;
+            margin: auto;
+            background: white;
+            border-radius: 22px;
+            padding: 30px;
+            box-shadow: 0 8px 25px #54382f12;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            background: #54382f;
+            color: white;
+            padding: 24px;
+        }
+
+        /* MOBILE DESIGN */
+
+        @media (max-width: 600px) {
+
+            nav {
+                justify-content: center;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero {
+                padding: 65px 20px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section {
+                padding: 55px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header>
+        <nav>
+            <div class="logo">
+                🥞 Fluffy Bites
+            </div>
+
+            <div>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#menu">Menu</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- HOME -->
+
+    <section class="hero" id="home">
+
+        <span class="hero-emoji">
+            🥞🍓🍫
+        </span>
+
+        <h1>
+            A Little Stack <br>
+            of Happiness!
+        </h1>
+
+        <p>
+            Soft, fluffy pancakes topped with
+            your favorite sweet treats.
+
+            Made to brighten your day,
+            one bite at a time.
+        </p>
+
+        <a href="#menu" class="btn">
+            Explore Our Menu
+        </a>
+
+        <a href="#contact" class="btn outline">
+            Get in Touch
+        </a>
+
+    </section>
+
+
+    <!-- ABOUT US -->
+
+    <section class="about section" id="about">
+
+        <h2>Made with Love 💕</h2>
+
+        <p>
+            Welcome to Fluffy Bites!
+
+        </p>
+
+    </section>
+
+
+    <!-- MENU -->
+
+    <section class="section" id="menu">
+
+        <h2>Our Sweet Menu 🍯</h2>
+
+        <p class="subtitle">
+            Pick your pancake stack and
+            add your favorite toppings!
+        </p>
+
+        <div class="cards">
+
+            <!-- PRODUCT 1 -->
+
+            <div class="card">
+
+                <div class="card-art">
+                    🥞
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Regular Pancakes</h3>
+
+                    <p>
+                        A comforting stack of
+                        2 soft, golden pancakes.
+                    </p>
+
+                    <p class="price">
+                        ₱75
+                    </p>
+
+                    <a href="#contact" class="btn">
+                        Ask to Order
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+
+            <div class="card">
+
+                <div class="card-art">
+                    🥞✨
+                </div>
+
+                <div class="card-content">
+
+                    <h3>3-Pancake Stack</h3>
+
+                    <p>
+                        Three delicious pancakes
+                        for a little extra sweetness.
+                    </p>
+
+                    <p class="price">
+                        ₱80
+                    </p>
+
+                    <a href="#contact" class="btn">
+                        Ask to Order
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+
+            <div class="card">
+
+                <div class="card-art">
+                    🍫🍌
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Your Favorite Toppings</h3>
+
+                    <p>
+                        Customize your pancakes
+                        with delicious toppings!
+                    </p>
+
+                    <p class="price">
+                        Ask for Pricing
+                    </p>
+
+                    <a href="#contact" class="btn">
+                        Ask to Order
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TOPPINGS -->
+
+        <div class="extras">
+
+            <h3>🍓 Topping Choices</h3>
+
+            <div class="chips">
+
+                <span class="chip">
+                    🍫 Nutella
+                </span>
+
+                <span class="chip">
+                    🍦 Ice Cream
+                </span>
+
+                <span class="chip">
+                    🍪 Oreo Crumble
+                </span>
+
+                <span class="chip">
+                    🍌 Banana
+                </span>
+
+                <span class="chip">
+                    🍓 Strawberry
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact section" id="contact">
+
+        <h2>Come Say Hello! 💌</h2>
+
+        <p class="subtitle">
+            Questions, cravings,
+            or ready to order?
+
+            We'd love to hear from you!
+        </p>
+
+        <div class="contact-box">
+
+            <h3>📍 Find Us</h3>
+
+            <p>
+                LIDE Learning Center, Inc.
+            </p>
+
+            <h3>📞 Contact Us</h3>
+
+            <p>
+                0975 372 3585
+            </p>
+
+            <p>
+                Message us to ask about
+                availability, pricing,
+                and orders.
+            </p>
+
+            <a
+                href="sms:+639753723585?body=Hi%20Fluffy%20Bites!%20I%20would%20like%20to%20order%20pancakes."
+                class="btn"
+            >
+                Text to Order
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        🥞 Fluffy Bites
+
+        <p>
+            Made with love and
+            a sprinkle of sweetness 💗
+        </p>
+
+        <small>
+            © <span id="year"></span>
+            Fluffy Bites.
+            All rights reserved.
+        </small>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        // Automatically updates the copyright year
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+    </script>
+
+</body>
+</html>
